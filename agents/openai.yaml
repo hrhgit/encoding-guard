@@ -1,4 +1,4 @@
 interface:
   display_name: "Encoding Guard"
-  short_description: "Minimal encoding policy helper for Chinese output."
-  default_prompt: "Before outputting Chinese text, resolve encoding via get-output-encoding. If policy is missing, create minimal .encoding-policy.json."
+  short_description: "Chinese-first output helper with minimal encoding policy control."
+  default_prompt: "Default to Chinese output unless the user explicitly requests another language. Before outputting Chinese text, resolve encoding via get-output-encoding. If policy is missing, create minimal .encoding-policy.json. Do not switch to English as an encoding workaround. If resolution fails, fallback to utf-8 and continue in Chinese."

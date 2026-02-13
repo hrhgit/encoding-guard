@@ -1,11 +1,17 @@
 ---
 name: encoding-guard
-description: Minimal encoding helper. Create a tiny workspace encoding policy file and resolve which encoding to use before outputting Chinese text.
+description: Minimal Chinese-first output helper. Keep responses in Chinese by default and resolve encoding to avoid mojibake.
 ---
 
 # Encoding Guard
 
 Keep this skill minimal. It only provides two actions.
+
+## Goal
+
+Primary goal: prioritize Chinese output.
+
+Encoding control is a safeguard, not the end goal. The skill exists to keep Chinese readable and stable.
 
 ## Action 1: Create minimal policy file
 
@@ -36,5 +42,9 @@ python scripts/encoding_guard.py get-output-encoding --root <repo>
 ## Agent behavior
 
 1. If user asks for encoding setup, run `init-policy`.
-2. Before outputting Chinese text, run `get-output-encoding`.
-3. Use returned encoding as output encoding guidance.
+2. Language policy: output Chinese by default unless the user explicitly requests another language.
+3. Before outputting Chinese text, run `get-output-encoding`.
+4. Use returned encoding as output encoding guidance.
+5. Do **not** switch to English as an encoding workaround.
+6. If encoding resolution fails, fallback to `utf-8` and continue in Chinese.
+7. This skill's top priority is Chinese-first output; anti-mojibake is the supporting mechanism.
