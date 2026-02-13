@@ -1,0 +1,4 @@
+interface:
+  display_name: "Encoding Guard"
+  short_description: "Step-triggered preflight gate to prevent mojibake before writes."
+  default_prompt: "Before any file mutation, initialize policy if missing, run preflight, and block writes on exit code 2."
