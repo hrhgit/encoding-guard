@@ -25,12 +25,11 @@ def render_gate_block(repo: Path) -> str:
     repo_s = str(repo)
     return "\n".join([
         BEGIN_MARKER,
-        "## Encoding Guard Gate (Mandatory)",
-        "Before any repo-tracked file mutation, run these commands:",
+        "## Encoding Guard (Minimal)",
+        "Use Encoding Guard only for encoding policy setup and Chinese output encoding resolution:",
         f"`python \"{SKILL_SCRIPT}\" init-policy --root \"{repo_s}\"`",
-        f"`python \"{SKILL_SCRIPT}\" preflight --root \"{repo_s}\" --policy \"{repo_s}\\.encoding-policy.json\" --files <file1> <file2> ...`",
-        "If preflight exits with code `2`, stop and do not write files.",
-        "For brand-new files, pipe pending content with --stdin-text as an additional check.",
+        f"`python \"{SKILL_SCRIPT}\" get-output-encoding --root \"{repo_s}\"`",
+        "If policy file is missing, get-output-encoding creates a minimal `.encoding-policy.json` automatically.",
         END_MARKER,
     ])
 
