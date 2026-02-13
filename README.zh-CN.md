@@ -1,6 +1,10 @@
 # Encoding Guard
 
-**中文** | [English](./README.md)
+<p align="center">
+  <a href="./README.md">English</a>
+  |
+  <a href="./README.zh-CN.md">简体中文</a>
+</p>
 
 `encoding-guard` 是一个极简技能，核心目标是：**优先输出中文**，并通过最小编码策略避免中文乱码（mojibake）。
 

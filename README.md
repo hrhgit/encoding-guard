@@ -1,6 +1,10 @@
 # Encoding Guard
 
-[中文](./README.zh-CN.md) | **English**
+<p align="center">
+  <a href="./README.md">English</a>
+  |
+  <a href="./README.zh-CN.md">简体中文</a>
+</p>
 
 `encoding-guard` is a minimal skill with one primary goal: **Chinese-first output**.  
 Encoding policy is a safeguard to keep Chinese text readable and stable.
